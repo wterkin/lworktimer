@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units Count="12">
+      <Unit0>
+        <Filename Value="lworktimer.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="26" Y="20"/>
+        <UsageCount Value="36"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="..\worktimer\main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UsageCount Value="27"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\worktimer\message.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmMessage"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UsageCount Value="27"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\worktimer\config.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmConfig"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UsageCount Value="27"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="main.pas"/>
+        <ComponentName Value="fmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="35"/>
+        <CursorPos X="16" Y="49"/>
+        <UsageCount Value="31"/>
+        <Bookmarks Count="1">
+          <Item0 X="19" Y="257" ID="1"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="message.pas"/>
+        <ComponentName Value="fmMessage"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="22"/>
+        <CursorPos Y="33"/>
+        <UsageCount Value="30"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="config.pas"/>
+        <ComponentName Value="fmConfig"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="25" Y="11"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="D:\work\src\tlib4\tcfg.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="30" Y="10"/>
+        <UsageCount Value="13"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="D:\work\src\tlzlib\tlib.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="..\tlib5\tlib.pas"/>
+        <EditorIndex Value="4"/>
+        <CursorPos X="6" Y="3"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="..\tlib5\tstr.pas"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="102"/>
+        <CursorPos X="10" Y="116"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="D:\langs\lazarus-2.2.6\lcl\include\customform.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1933"/>
+        <CursorPos X="23" Y="1947"/>
+        <UsageCount Value="10"/>
+      </Unit11>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="main.pas"/>
+        <Caret Line="242" Column="24" TopLine="223"/>
+      </Position1>
+      <Position2>
+        <Filename Value="message.pas"/>
+        <Caret Line="52" TopLine="39"/>
+      </Position2>
+      <Position3>
+        <Filename Value="message.pas"/>
+        <Caret Line="53" Column="35" TopLine="39"/>
+      </Position3>
+      <Position4>
+        <Filename Value="main.pas"/>
+        <Caret Line="243" Column="33" TopLine="223"/>
+      </Position4>
+      <Position5>
+        <Filename Value="main.pas"/>
+        <Caret Line="95" Column="62" TopLine="78"/>
+      </Position5>
+      <Position6>
+        <Filename Value="message.pas"/>
+        <Caret Line="23" Column="85" TopLine="3"/>
+      </Position6>
+      <Position7>
+        <Filename Value="message.pas"/>
+        <Caret Line="56" Column="15" TopLine="42"/>
+      </Position7>
+      <Position8>
+        <Filename Value="message.pas"/>
+        <Caret Line="58" Column="15" TopLine="44"/>
+      </Position8>
+      <Position9>
+        <Filename Value="message.pas"/>
+        <Caret Line="54" Column="23" TopLine="44"/>
+      </Position9>
+      <Position10>
+        <Filename Value="main.pas"/>
+        <Caret Line="88" Column="3" TopLine="78"/>
+      </Position10>
+      <Position11>
+        <Filename Value="message.pas"/>
+        <Caret Line="59" Column="23" TopLine="40"/>
+      </Position11>
+      <Position12>
+        <Filename Value="..\tlib5\tstr.pas"/>
+        <Caret Line="116" Column="10" TopLine="102"/>
+      </Position12>
+      <Position13>
+        <Filename Value="main.pas"/>
+        <Caret Line="89" Column="3" TopLine="79"/>
+      </Position13>
+      <Position14>
+        <Filename Value="main.pas"/>
+        <Caret Line="189" Column="7" TopLine="187"/>
+      </Position14>
+      <Position15>
+        <Filename Value="main.pas"/>
+        <Caret Line="188" Column="7" TopLine="186"/>
+      </Position15>
+      <Position16>
+        <Filename Value="main.pas"/>
+        <Caret Line="97" Column="50" TopLine="79"/>
+      </Position16>
+      <Position17>
+        <Filename Value="main.pas"/>
+      </Position17>
+      <Position18>
+        <Filename Value="main.pas"/>
+        <Caret Line="98" Column="36" TopLine="75"/>
+      </Position18>
+      <Position19>
+        <Filename Value="message.pas"/>
+        <Caret Line="69" TopLine="64"/>
+      </Position19>
+      <Position20>
+        <Filename Value="message.pas"/>
+        <Caret Line="77" TopLine="64"/>
+      </Position20>
+      <Position21>
+        <Filename Value="message.pas"/>
+        <Caret Line="79" TopLine="64"/>
+      </Position21>
+      <Position22>
+        <Filename Value="message.pas"/>
+        <Caret Line="69" TopLine="64"/>
+      </Position22>
+      <Position23>
+        <Filename Value="message.pas"/>
+        <Caret Line="72" TopLine="64"/>
+      </Position23>
+      <Position24>
+        <Filename Value="message.pas"/>
+        <Caret Line="73" TopLine="64"/>
+      </Position24>
+      <Position25>
+        <Filename Value="main.pas"/>
+        <Caret Line="87" Column="2" TopLine="78"/>
+      </Position25>
+      <Position26>
+        <Filename Value="main.pas"/>
+        <Caret Line="302" Column="16" TopLine="288"/>
+      </Position26>
+      <Position27>
+        <Filename Value="main.pas"/>
+        <Caret Line="325" Column="68" TopLine="310"/>
+      </Position27>
+      <Position28>
+        <Filename Value="main.pas"/>
+        <Caret Line="76" Column="7" TopLine="70"/>
+      </Position28>
+      <Position29>
+        <Filename Value="main.pas"/>
+        <Caret Line="101" Column="14" TopLine="95"/>
+      </Position29>
+      <Position30>
+        <Filename Value="main.pas"/>
+        <Caret Line="150" Column="62" TopLine="130"/>
+      </Position30>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode="default"/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <Watches>
+      <Item>
+        <Expression Value="mlCurrentWorkTime"/>
+      </Item>
+      <Item>
+        <Expression Value="mlMaxWorkTime"/>
+      </Item>
+      <Item>
+        <Expression Value="mlCurrentWaitTime"/>
+      </Item>
+      <Item>
+        <Expression Value="mlMaxWaitTime"/>
+      </Item>
+      <Item>
+        <Expression Value="mlMaxPauseTime"/>
+      </Item>
+      <Item>
+        <Expression Value="mlMaxNotWorkTime"/>
+      </Item>
+      <Item>
+        <Expression Value="moWorkMode"/>
+      </Item>
+      <Item>
+        <Expression Value="a"/>
+      </Item>
+      <Item>
+        <Expression Value="s"/>
+      </Item>
+      <Item>
+        <Expression Value="lcaText"/>
+      </Item>
+    </Watches>
+  </Debugging>
+</CONFIG>

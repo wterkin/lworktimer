@@ -54,7 +54,15 @@ begin
   Self.AlphaBlendValue := 0;
   Self.Width := Screen.Width div 2;
   Self.Left := Screen.Width div 4;
-  Self.Top := Screen.WorkAreaHeight - Self.Height;
+  if MainForm.mblPositionTop then
+  begin
+
+    Self.Top := 0;
+  end else
+  begin
+
+    Self.Top := Screen.WorkAreaHeight - Self.Height;
+  end;
   miStep := 1;
   NotifyTimer.Enabled := True;
   SetForegroundWindow(MainForm.getActiveWindow());

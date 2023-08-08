@@ -49,21 +49,21 @@
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="..\worktimer\main.pas"/>
+        <Filename Value="main.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="fmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit1>
       <Unit2>
-        <Filename Value="..\worktimer\message.pas"/>
+        <Filename Value="message.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="fmMessage"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit2>
       <Unit3>
-        <Filename Value="..\worktimer\config.pas"/>
+        <Filename Value="config.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="fmConfig"/>
         <HasResources Value="True"/>

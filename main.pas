@@ -36,10 +36,12 @@ type
 		Label1: TLabel;
 		lbValue: TLabel;
     MainTimer: TTimer;
+		Panel1 : TPanel;
 		pbWorkTime: TProgressBar;
     sbConfig: TSpeedButton;
     sbPause: TSpeedButton;
     sbExit: TSpeedButton;
+		SpeedButton1 : TSpeedButton;
     tmNotNow: TTimer;
     TrayIcon: TTrayIcon;
     procedure FormCreate(Sender: TObject);
@@ -72,6 +74,7 @@ type
     mblFormHidden         : Boolean;
     mhActiveWindow        : HWND;
   public
+    mblPositionTop        : Boolean;
 
     procedure WMWINDOWPOSCHANGING(var Msg: TWMWINDOWPOSCHANGING); message WM_WINDOWPOSCHANGING;
     function  getMaxPauseTime() : Longint;
@@ -98,7 +101,7 @@ const
       clNotWorkTime        = 5;  // Время бездействия, после которого таймер
                                  // работы выключится
       {$else}
-      csTitle              = 'LWorkTimer ver. 2.4';
+      csTitle              = 'LWorkTimer ver. 2.5';
       clMaxWorkTime        = 1200; // Максимальное время работы до перерыва, сек
       clMaxIdleTime        = 10;   // Время ожидания прекращения работы, сек
       clMaxPauseTime       = 300;  // Время перерыва, сек
@@ -315,6 +318,7 @@ begin
   mlMaxWaitTime:=loIniMgr.read('main', 'maxidletime', clMaxIdleTime);
   mlMaxPauseTime:=loIniMgr.read('main', 'maxpausetime', clMaxPauseTime);
   mlMaxNotWorkTime:=loIniMgr.read('main', 'maxnotworktime', clNotWorkTime);
+  mblPositionTop:=loIniMgr.read('main', 'position', 'top')='top';
   loIniMgr.read(fmMain);
   FreeAndNil(loIniMgr);
 end;
@@ -329,8 +333,16 @@ begin
   loIniMgr.write('main','maxidletime',mlMaxWaitTime);
   loIniMgr.write('main','maxpausetime',mlMaxPauseTime);
   loIniMgr.write('main','maxnotworktime',mlMaxNotWorkTime);
+  if mblPositionTop then
+  begin
+
+    loIniMgr.write('main','position','top');
+  end else
+  begin
+    loIniMgr.write('main','position','bottom');
+  end;
   loIniMgr.write(fmMain);
-  FreeAndNil(loIniMgr);
+	FreeAndNil(loIniMgr);
 end;
 
 
@@ -399,6 +411,7 @@ begin
     mblFormHidden:=True;
   end;
 end;
+
 
 procedure TfmMain.WMWINDOWPOSCHANGING(var Msg: TWMWINDOWPOSCHANGING);
 var WorkArea: TRect;

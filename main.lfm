@@ -9,6 +9,7 @@ object fmMain: TfmMain
   ClientHeight = 40
   ClientWidth = 501
   Constraints.MinHeight = 40
+  KeyPreview = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnKeyDown = FormKeyDown
@@ -241,7 +242,7 @@ object fmMain: TfmMain
     ClientHeight = 31
     ClientWidth = 354
     TabOrder = 0
-    object Label1: TLabel
+    object lbTime: TLabel
       Left = 8
       Height = 17
       Top = 8
@@ -290,7 +291,7 @@ object fmMain: TfmMain
       OnMouseDown = FormMouseDown
     end
   end
-  object SpeedButton1: TSpeedButton
+  object sbCancel: TSpeedButton
     Left = 368
     Height = 31
     Top = 5

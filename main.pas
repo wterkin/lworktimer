@@ -33,7 +33,7 @@ type
   TWorkModes = (wmWork,wmWait,wmPause,wmNotWork,wmNotPause);
 
   TfmMain = class(TForm)
-		Label1: TLabel;
+		lbTime: TLabel;
 		lbValue: TLabel;
     MainTimer: TTimer;
 		Panel1 : TPanel;
@@ -41,7 +41,7 @@ type
     sbConfig: TSpeedButton;
     sbPause: TSpeedButton;
     sbExit: TSpeedButton;
-		SpeedButton1 : TSpeedButton;
+		sbCancel : TSpeedButton;
     tmNotNow: TTimer;
     TrayIcon: TTrayIcon;
     procedure FormCreate(Sender: TObject);
@@ -101,7 +101,7 @@ const
       clNotWorkTime        = 5;  // Время бездействия, после которого таймер
                                  // работы выключится
       {$else}
-      csTitle              = 'LWorkTimer ver. 2.5';
+      csTitle              = 'LWorkTimer ver. 2.6';
       clMaxWorkTime        = 1200; // Максимальное время работы до перерыва, сек
       clMaxIdleTime        = 10;   // Время ожидания прекращения работы, сек
       clMaxPauseTime       = 300;  // Время перерыва, сек
@@ -188,6 +188,7 @@ begin
 	end;
 end;
 
+
 procedure TfmMain.FormMouseDown(Sender: TObject; Button: TMouseButton;
 			Shift: TShiftState; X, Y: Integer);
 const SC_DRAGMOVE : Longint = $F013;
@@ -253,14 +254,21 @@ begin
 
         //** Переключаемся в режим паузы
         moWorkMode:=wmPause;
+        sbCancel.Enabled:=True;
+        sbPause.Enabled:=False;
+        sbConfig.Enabled:=False;
+        sbExit.Enabled:=False;
         mlCurrentWaitTime:=0;
+        pbWorkTime.Max:=mlMaxPauseTime;
+        pbWorkTime.Position:=mlMaxPauseTime;
+        lbTime.Caption:='Время перерыва';
         if fmMessage<>nil then
         begin
 
           mhActiveWindow := GetFocusedWindow();
           fmMessage.bbtInterrupt.Enabled:=False;
           tmNotNow.Enabled:=True;
-          fmMessage.Show;
+          //fmMessage.Show;
         end;
       end;
       Display();
@@ -273,17 +281,25 @@ begin
       begin
 
         inc(mlCurrentPauseTime);
+
       end else
       begin
 
         if fmMessage<>nil then
         begin
 
-          fmMessage.Close;
+          //fmMessage.Close;
         end;
         moWorkMode:=wmWork;
         mlCurrentPauseTime:=0;
         mlCurrentWorkTime:=0;
+        sbCancel.Enabled:=False;
+        sbPause.Enabled:=True;
+        sbConfig.Enabled:=True;
+        sbExit.Enabled:=True;
+        pbWorkTime.Max:=clMaxWorkTime;
+        pbWorkTime.Position:=0;
+        lbTime.Caption:='Время до перерыва';
       end;
       Display();
     end;
@@ -476,14 +492,30 @@ end;
 procedure TfmMain.Display();
 begin
 
-  pbWorkTime.Position:=mlCurrentWorkTime+1;
-  lbValue.Caption:=
-    alignRight(IntToStr((mlMaxWorkTime-mlCurrentWorkTime) div 60),2,'0')+':'+
-    alignRight(IntToStr((mlMaxWorkTime-mlCurrentWorkTime) mod 60),2,'0');
+  if moWorkMode = wmWork then
+  begin
+
+    pbWorkTime.Position:=mlCurrentWorkTime+1;
+    lbValue.Caption:=
+      alignRight(IntToStr((mlMaxWorkTime-mlCurrentWorkTime) div 60),2,'0')+':'+
+      alignRight(IntToStr((mlMaxWorkTime-mlCurrentWorkTime) mod 60),2,'0');
+  end else
+  begin
+
+    if moWorkMode = wmPause then
+    begin
+
+  		pbWorkTime.Position:=(pbWorkTime.Max - mlCurrentPauseTime) + 1;
+      lbValue.Caption:=
+        alignRight(IntToStr((pbWorkTime.Max - mlCurrentPauseTime) div 60),2,'0')+':'+
+        alignRight(IntToStr((pbWorkTime.Max - mlCurrentPauseTime) mod 60),2,'0');
+ 		end;
+  end;
+
   if fmMessage<>Nil then
   begin
 
-    fmMessage.pbPauseTime.Position:=mlCurrentPauseTime;
+    //fmMessage.pbPauseTime.Position:=mlCurrentPauseTime;
 	end;
 end;
 

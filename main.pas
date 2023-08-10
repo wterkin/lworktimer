@@ -103,7 +103,7 @@ const
       clNotWorkTime        = 5;  // Время бездействия, после которого таймер
                                  // работы выключится
       {$else}
-      csTitle              = 'LWorkTimer ver. 3.0';
+      csTitle              = 'LWorkTimer ver. 3.1';
       clMaxWorkTime        = 1200; // Максимальное время работы до перерыва, сек
       clMaxIdleTime        = 10;   // Время ожидания прекращения работы, сек
       clMaxPauseTime       = 300;  // Время перерыва, сек
@@ -302,7 +302,7 @@ begin
         sbPause.Enabled:=True;
         sbConfig.Enabled:=True;
         sbExit.Enabled:=True;
-        pbWorkTime.Max:=clMaxWorkTime;
+        pbWorkTime.Max:=mlMaxWorkTime;
         pbWorkTime.Position:=0;
         lbTime.Caption:='Время до перерыва';
       end;
@@ -547,7 +547,7 @@ begin
 
 		      pbWorkTime.Position := mlCurrentWorkTime+1;
 				end;
-	      lbValue.Caption := FormatTime(mlCurrentWorkTime);
+        lbValue.Caption := FormatTime(mlMaxWorkTime-mlCurrentWorkTime);
 			end;
 		end;
   end;

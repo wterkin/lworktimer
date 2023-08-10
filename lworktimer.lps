@@ -19,9 +19,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="97"/>
-        <CursorPos X="50" Y="106"/>
-        <FoldState Value=" TCFM71 T3jf0d3261513 PmNs60&apos;"/>
+        <TopLine Value="121"/>
+        <CursorPos X="31" Y="168"/>
+        <FoldState Value=" TCFM71 T3jf0d4 pkNlY0D8 pibjY074]9djI0K2 Pi9i70k"/>
         <UsageCount Value="34"/>
         <Bookmarks Count="2">
           <Item0 X="37" Y="254" ID="1"/>
@@ -49,7 +49,6 @@
         <TopLine Value="68"/>
         <CursorPos Y="84"/>
         <UsageCount Value="33"/>
-        <LoadedDesigner Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="..\worktimer\main.pas"/>

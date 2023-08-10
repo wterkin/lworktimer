@@ -330,6 +330,7 @@ begin
   end;
 end;
 
+
 procedure TfmMain.sbCancelClick(Sender : TObject);
 begin
 
@@ -633,6 +634,7 @@ begin
   end;
   (*Можно создать окно со стилями WS_EX_TOPMOST+ WS_EX_NOACTIVATE*)
 end;
+
 
 end.
 

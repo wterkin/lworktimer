@@ -4,6 +4,7 @@ object fmMain: TfmMain
   Hint = 'LWorkTimer  ver. 2.4'
   Top = 297
   Width = 501
+  AlphaBlend = True
   BorderStyle = bsNone
   Caption = 'LWorkTimer  ver. 2.3'
   ClientHeight = 40
@@ -362,12 +363,13 @@ object fmMain: TfmMain
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000000004E000001F100000042FFFF
       FF00FFFFFF00FFFFFF00
     }
+    OnClick = sbCancelClick
   end
   object MainTimer: TTimer
     Enabled = False
     OnTimer = MainTimerTimer
-    Left = 24
-    Top = 96
+    Left = 72
+    Top = 40
   end
   object TrayIcon: TTrayIcon
     BalloonFlags = bfInfo
@@ -511,7 +513,7 @@ object fmMain: TfmMain
       07FF
     }
     OnDblClick = TrayIconDblClick
-    Left = 368
+    Left = 248
     Top = 40
   end
   object tmNotNow: TTimer

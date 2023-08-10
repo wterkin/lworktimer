@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, ComCtrls, Buttons, windows, message, config,
+  ExtCtrls, ComCtrls, Buttons, windows, config,
   tini, tstr;
 
 type
@@ -50,6 +50,7 @@ type
 		procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
 					{%H-}Shift: TShiftState; {%H-}X, {%H-}Y: Integer);
     procedure MainTimerTimer(Sender: TObject);
+		procedure sbCancelClick(Sender : TObject);
     procedure sbPauseClick(Sender: TObject);
     procedure sbConfigClick(Sender: TObject);
     procedure sbExitClick(Sender: TObject);
@@ -73,6 +74,7 @@ type
     mlCurrentNotPauseTime : Longint;
     mblFormHidden         : Boolean;
     mhActiveWindow        : HWND;
+    function FormatTime(plParameter : Longint) : String;
   public
     mblPositionTop        : Boolean;
 
@@ -101,7 +103,7 @@ const
       clNotWorkTime        = 5;  // Время бездействия, после которого таймер
                                  // работы выключится
       {$else}
-      csTitle              = 'LWorkTimer ver. 2.6';
+      csTitle              = 'LWorkTimer ver. 3.0';
       clMaxWorkTime        = 1200; // Максимальное время работы до перерыва, сек
       clMaxIdleTime        = 10;   // Время ожидания прекращения работы, сек
       clMaxPauseTime       = 300;  // Время перерыва, сек
@@ -132,6 +134,9 @@ begin
   inherited;
   MainForm:=fmMain;
   readConfig();
+  {$ifdef __debug__}
+  BorderStyle := bsSingle;
+  {$endif}
 
   moWorkMode:=wmWork;
 
@@ -210,6 +215,7 @@ begin
     //** Основной режим, когда человек работает
     wmWork: begin
 
+      {$ifdef __debug__} Caption := 'Work'; {$endif}
       //** Если еще рано для паузы..
       if mlCurrentWorkTime<mlMaxWorkTime then
       begin
@@ -243,16 +249,27 @@ begin
     //** Режим ожидания паузы в работе для организации паузы
     wmWait: begin
 
+      {$ifdef __debug__} Caption := 'Wait'; {$endif}
       //** Ждем, пока будет достигнута пауза в работе длиной mlMaxWaitTime
       if mlCurrentWaitTime<mlMaxWaitTime then
       begin
 
         inc(mlCurrentWaitTime);
+        if mlCurrentWaitTime mod 2 = 0 then
+        begin;
+
+          fmMain.AlphaBlendValue:=0;
+        end else
+        begin
+
+          fmMain.AlphaBlendValue:=255;
+        end;
       end
       else
       begin
 
         //** Переключаемся в режим паузы
+        fmMain.AlphaBlendValue:=255;
         moWorkMode:=wmPause;
         sbCancel.Enabled:=True;
         sbPause.Enabled:=False;
@@ -262,14 +279,6 @@ begin
         pbWorkTime.Max:=mlMaxPauseTime;
         pbWorkTime.Position:=mlMaxPauseTime;
         lbTime.Caption:='Время перерыва';
-        if fmMessage<>nil then
-        begin
-
-          mhActiveWindow := GetFocusedWindow();
-          fmMessage.bbtInterrupt.Enabled:=False;
-          tmNotNow.Enabled:=True;
-          //fmMessage.Show;
-        end;
       end;
       Display();
     end;
@@ -277,6 +286,7 @@ begin
     //** Режим паузы
     wmPause: begin
 
+      {$ifdef __debug__} Caption := 'Pause'; {$endif}
       if mlCurrentPauseTime<mlMaxPauseTime then
       begin
 
@@ -285,11 +295,6 @@ begin
       end else
       begin
 
-        if fmMessage<>nil then
-        begin
-
-          //fmMessage.Close;
-        end;
         moWorkMode:=wmWork;
         mlCurrentPauseTime:=0;
         mlCurrentWorkTime:=0;
@@ -307,6 +312,7 @@ begin
     //** Режим, когда человек может работать, но не работает!
     wmNotWork: begin
 
+      {$ifdef __debug__} Caption := 'Not Work'; {$endif}
       if mlCurrentWorkTime>0 then
       begin
 
@@ -318,9 +324,25 @@ begin
     //** Режим, когда человек должен отдыхать, но не отдыхает!
     wmNotPause: begin
 
+      {$ifdef __debug__} Caption := 'Not Pause'; {$endif}
       Display();
     end;
   end;
+end;
+
+procedure TfmMain.sbCancelClick(Sender : TObject);
+begin
+
+  moWorkMode:=wmWork;
+  mlCurrentPauseTime:=0;
+  mlCurrentWorkTime:=0;
+  sbCancel.Enabled:=False;
+  sbPause.Enabled:=True;
+  sbConfig.Enabled:=True;
+  sbExit.Enabled:=True;
+  pbWorkTime.Max:=clMaxWorkTime;
+  pbWorkTime.Position:=0;
+  lbTime.Caption:='Время до перерыва';
 end;
 
 
@@ -406,7 +428,6 @@ end;
 procedure TfmMain.tmNotNowTimer(Sender: TObject);
 begin
 
-  fmMessage.bbtInterrupt.Enabled:=True;
   tmNotNow.Enabled:=False;
 end;
 
@@ -426,6 +447,16 @@ begin
     MainForm.Hide;
     mblFormHidden:=True;
   end;
+end;
+
+
+function TfmMain.FormatTime(plParameter : Longint) : String;
+var lsMinutes, lsSeconds : String;
+begin
+
+  lsMinutes := IntToStr(plParameter div 60);
+  lsSeconds := IntToStr(plParameter mod 60);
+  Result := alignRight(lsMinutes,2,'0') + ':' + alignRight(lsSeconds,2,'0');
 end;
 
 
@@ -496,9 +527,7 @@ begin
   begin
 
     pbWorkTime.Position:=mlCurrentWorkTime+1;
-    lbValue.Caption:=
-      alignRight(IntToStr((mlMaxWorkTime-mlCurrentWorkTime) div 60),2,'0')+':'+
-      alignRight(IntToStr((mlMaxWorkTime-mlCurrentWorkTime) mod 60),2,'0');
+    lbValue.Caption := FormatTime(mlMaxWorkTime-mlCurrentWorkTime);
   end else
   begin
 
@@ -506,17 +535,22 @@ begin
     begin
 
   		pbWorkTime.Position:=(pbWorkTime.Max - mlCurrentPauseTime) + 1;
-      lbValue.Caption:=
-        alignRight(IntToStr((pbWorkTime.Max - mlCurrentPauseTime) div 60),2,'0')+':'+
-        alignRight(IntToStr((pbWorkTime.Max - mlCurrentPauseTime) mod 60),2,'0');
- 		end;
+      lbValue.Caption:=FormatTime(pbWorkTime.Max - mlCurrentPauseTime);
+ 		end else
+    begin
+
+		  if moWorkMode = wmNotWork then
+		  begin
+
+		    if mlCurrentWaitTime <= pbWorkTime.Position then
+		    begin
+
+		      pbWorkTime.Position := mlCurrentWorkTime+1;
+				end;
+	      lbValue.Caption := FormatTime(mlCurrentWorkTime);
+			end;
+		end;
   end;
-
-  if fmMessage<>Nil then
-  begin
-
-    //fmMessage.pbPauseTime.Position:=mlCurrentPauseTime;
-	end;
 end;
 
 

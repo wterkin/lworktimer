@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="26" Y="20"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="39"/>
       </Unit0>
       <Unit1>
         <Filename Value="main.pas"/>
@@ -19,27 +19,26 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="94"/>
-        <CursorPos X="50" Y="102"/>
-        <FoldState Value=" TCFM71 T3jd0a4 pkLlT0D8 pjHkE04]IifjH0S?"/>
-        <UsageCount Value="32"/>
+        <TopLine Value="544"/>
+        <CursorPos Y="553"/>
+        <FoldState Value=" TCFM71 T3jf0d3261513 PmNs60&apos;"/>
+        <UsageCount Value="34"/>
         <Bookmarks Count="2">
-          <Item0 X="24" Y="293" ID="1"/>
-          <Item1 X="3" Y="502" ID="2"/>
+          <Item0 X="37" Y="254" ID="1"/>
+          <Item1 X="17" Y="315" ID="2"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="message.pas"/>
-        <IsPartOfProject Value="True"/>
         <ComponentName Value="fmMessage"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="34"/>
-        <CursorPos X="19" Y="59"/>
-        <UsageCount Value="31"/>
+        <TopLine Value="68"/>
+        <CursorPos Y="84"/>
+        <UsageCount Value="33"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -51,7 +50,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="25" Y="11"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="27"/>
       </Unit3>
       <Unit4>
         <Filename Value="..\worktimer\main.pas"/>
@@ -111,127 +110,130 @@
         <EditorIndex Value="1"/>
         <TopLine Value="169"/>
         <CursorPos Y="180"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="11"/>
         <Loaded Value="True"/>
       </Unit12>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="main.pas"/>
-        <Caret Line="301" TopLine="284"/>
+        <Caret Line="332" TopLine="316"/>
       </Position1>
       <Position2>
         <Filename Value="main.pas"/>
-        <Caret Line="302" TopLine="285"/>
+        <Caret Line="342" TopLine="332"/>
       </Position2>
       <Position3>
-        <Filename Value="main.pas"/>
-        <Caret Line="304" TopLine="287"/>
+        <Filename Value="D:\langs\lazarus-2.2.6\lcl\customtimer.pas"/>
+        <Caret Line="180" TopLine="169"/>
       </Position3>
       <Position4>
         <Filename Value="main.pas"/>
-        <Caret Line="324" TopLine="314"/>
+        <Caret Line="212" TopLine="176"/>
       </Position4>
       <Position5>
-        <Filename Value="D:\langs\lazarus-2.2.6\lcl\customtimer.pas"/>
-        <Caret Line="180" TopLine="169"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="326" TopLine="316"/>
       </Position5>
       <Position6>
         <Filename Value="main.pas"/>
-        <Caret Line="214" TopLine="174"/>
+        <Caret Line="327" TopLine="316"/>
       </Position6>
       <Position7>
         <Filename Value="main.pas"/>
-        <Caret Line="218" Column="22" TopLine="175"/>
+        <Caret Line="332" TopLine="316"/>
       </Position7>
       <Position8>
         <Filename Value="main.pas"/>
-        <Caret Line="229" TopLine="219"/>
+        <Caret Line="342" TopLine="332"/>
       </Position8>
       <Position9>
         <Filename Value="main.pas"/>
-        <Caret Line="232" TopLine="219"/>
+        <Caret Line="224" Column="31" TopLine="224"/>
       </Position9>
       <Position10>
         <Filename Value="main.pas"/>
-        <Caret Line="240" TopLine="230"/>
       </Position10>
       <Position11>
         <Filename Value="main.pas"/>
-        <Caret Line="324" TopLine="314"/>
+        <Caret Line="77" Column="13" TopLine="60"/>
       </Position11>
       <Position12>
-        <Filename Value="D:\langs\lazarus-2.2.6\lcl\customtimer.pas"/>
-        <Caret Line="180" TopLine="169"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="278" Column="25" TopLine="261"/>
       </Position12>
       <Position13>
         <Filename Value="main.pas"/>
-        <Caret Line="214" TopLine="192"/>
+        <Caret Line="317" Column="25" TopLine="303"/>
       </Position13>
       <Position14>
         <Filename Value="main.pas"/>
-        <Caret Line="218" TopLine="192"/>
+        <Caret Line="355" Column="11" TopLine="337"/>
       </Position14>
       <Position15>
         <Filename Value="main.pas"/>
-        <Caret Line="229" TopLine="219"/>
+        <Caret Line="370" Column="14" TopLine="352"/>
       </Position15>
       <Position16>
         <Filename Value="main.pas"/>
-        <Caret Line="214" TopLine="192"/>
+        <Caret Line="76" Column="25" TopLine="62"/>
       </Position16>
       <Position17>
         <Filename Value="main.pas"/>
-        <Caret Line="218" TopLine="192"/>
+        <Caret Line="453" TopLine="432"/>
       </Position17>
       <Position18>
         <Filename Value="main.pas"/>
-        <Caret Line="229" TopLine="219"/>
+        <Caret Line="537" TopLine="516"/>
       </Position18>
       <Position19>
         <Filename Value="main.pas"/>
-        <Caret Line="209" TopLine="192"/>
+        <Caret Line="543" Column="53" TopLine="531"/>
       </Position19>
       <Position20>
         <Filename Value="main.pas"/>
-        <Caret Line="310" TopLine="300"/>
+        <Caret Line="451" Column="50" TopLine="433"/>
       </Position20>
       <Position21>
         <Filename Value="main.pas"/>
-        <Caret Line="315" TopLine="300"/>
+        <Caret Line="527" Column="44" TopLine="506"/>
       </Position21>
       <Position22>
         <Filename Value="main.pas"/>
-        <Caret Line="324" TopLine="314"/>
+        <Caret Line="534" Column="44" TopLine="505"/>
       </Position22>
       <Position23>
-        <Filename Value="D:\langs\lazarus-2.2.6\lcl\customtimer.pas"/>
-        <Caret Line="180" TopLine="169"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="171" TopLine="164"/>
       </Position23>
       <Position24>
         <Filename Value="main.pas"/>
-        <Caret Line="209" TopLine="173"/>
+        <Caret Line="457" TopLine="368"/>
       </Position24>
       <Position25>
         <Filename Value="main.pas"/>
-        <Caret Line="310" TopLine="300"/>
+        <Caret Line="359" TopLine="347"/>
       </Position25>
       <Position26>
         <Filename Value="main.pas"/>
-        <Caret Line="165" Column="14" TopLine="157"/>
+        <Caret Line="358" TopLine="346"/>
       </Position26>
       <Position27>
         <Filename Value="main.pas"/>
-        <Caret Line="209" Column="32" TopLine="237"/>
+        <Caret Line="9" Column="40"/>
       </Position27>
       <Position28>
         <Filename Value="main.pas"/>
-        <Caret Line="237" Column="30" TopLine="227"/>
+        <Caret Line="282" TopLine="271"/>
       </Position28>
       <Position29>
         <Filename Value="main.pas"/>
-        <Caret Line="308" Column="14" TopLine="291"/>
+        <Caret Line="298" TopLine="288"/>
       </Position29>
+      <Position30>
+        <Filename Value="main.pas"/>
+        <Caret Line="431" TopLine="421"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -241,19 +243,7 @@
   <Debugging>
     <Watches>
       <Item>
-        <Expression Value="moWorkMode"/>
-      </Item>
-      <Item>
-        <Expression Value="mlCurrentPauseTime"/>
-      </Item>
-      <Item>
-        <Expression Value="mlMaxPauseTime"/>
-      </Item>
-      <Item>
-        <Expression Value="clMaxPauseTime"/>
-      </Item>
-      <Item>
-        <Expression Value="mlCurrentWorkTime"/>
+        <Expression Value="mlCurrentWaitTime"/>
       </Item>
     </Watches>
   </Debugging>

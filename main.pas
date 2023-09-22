@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, ComCtrls, Buttons, windows, config,
+  ExtCtrls, ComCtrls, Buttons, windows, config, MMSystem,
   tini, tstr;
 
 type
@@ -103,7 +103,7 @@ const
       clNotWorkTime        = 5;  // Время бездействия, после которого таймер
                                  // работы выключится
       {$else}
-      csTitle              = 'LWorkTimer ver. 3.1';
+      csTitle              = 'LWorkTimer ver. 3.2';
       clMaxWorkTime        = 1200; // Максимальное время работы до перерыва, сек
       clMaxIdleTime        = 10;   // Время ожидания прекращения работы, сек
       clMaxPauseTime       = 300;  // Время перерыва, сек
@@ -113,6 +113,7 @@ const
 
       clMainTimerInterval  = 1000; // Тики периода
       csIniFileName        = 'lworktimer.ini';
+      csSoundFile          = 'sounds\cap4se.wav';
 
 var fmMain : TfmMain;
     MainForm : TfmMain;
@@ -264,6 +265,12 @@ begin
 
           fmMain.AlphaBlendValue:=255;
         end;
+        if FileExists('sounds\cap4se.wav') then
+        begin
+
+          sndPlaySound(PChar(csSoundFile), SND_FILENAME or SND_ASYNC);
+        end;
+
       end
       else
       begin

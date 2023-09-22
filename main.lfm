@@ -1,13 +1,13 @@
 object fmMain: TfmMain
   Left = 583
-  Height = 125
+  Height = 40
   Hint = 'LWorkTimer  ver. 2.4'
   Top = 297
   Width = 501
   AlphaBlend = True
   BorderStyle = bsNone
   Caption = 'LWorkTimer  ver. 2.3'
-  ClientHeight = 125
+  ClientHeight = 40
   ClientWidth = 501
   Constraints.MaxHeight = 40
   Constraints.MinHeight = 40

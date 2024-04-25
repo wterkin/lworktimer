@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ExtCtrls, ComCtrls, Buttons, windows, config, MMSystem,
-  tini, tstr;
+  tini, tstr, rest;
 
 type
 
@@ -74,6 +74,8 @@ type
     mlCurrentNotPauseTime : Longint;
     mblFormHidden         : Boolean;
     mhActiveWindow        : HWND;
+
+
     function FormatTime(plParameter : Longint) : String;
   public
     mblPositionTop        : Boolean;
@@ -103,7 +105,7 @@ const
       clNotWorkTime        = 5;  // Время бездействия, после которого таймер
                                  // работы выключится
       {$else}
-      csTitle              = 'LWorkTimer ver. 3.2';
+      csTitle              = 'LWorkTimer ver. 3.5';
       clMaxWorkTime        = 1200; // Максимальное время работы до перерыва, сек
       clMaxIdleTime        = 10;   // Время ожидания прекращения работы, сек
       clMaxPauseTime       = 300;  // Время перерыва, сек
@@ -114,12 +116,14 @@ const
       clMainTimerInterval  = 1000; // Тики периода
       csIniFileName        = 'lworktimer.ini';
       csSoundFile          = 'sounds\cap4se.wav';
+      ciMaxWaitSecond      = 5;
 
 var fmMain : TfmMain;
     MainForm : TfmMain;
     goMouseHook : cardinal;
     goKeyHook : cardinal;
-
+    gblRestFormShowed : Boolean;
+    giWait : Integer;
 
 implementation
 {$R *.lfm}
@@ -165,6 +169,7 @@ begin
   TrayIcon.BalloonTimeout:=mlMaxWaitTime;
   mblFormHidden:=True;
   MainForm.Hint := csTitle;
+  gblRestFormShowed:=False;
 end;
 
 
@@ -286,6 +291,9 @@ begin
         pbWorkTime.Max:=mlMaxPauseTime;
         pbWorkTime.Position:=mlMaxPauseTime;
         lbTime.Caption:='Время перерыва';
+        fmRest.Show;
+        gblRestFormShowed:=True;
+        giWait:=ciMaxWaitSecond;
       end;
       Display();
     end;
@@ -312,6 +320,8 @@ begin
         pbWorkTime.Max:=mlMaxWorkTime;
         pbWorkTime.Position:=0;
         lbTime.Caption:='Время до перерыва';
+        fmRest.Hide;
+        gblRestFormShowed:=False;
       end;
       Display();
     end;
@@ -335,6 +345,11 @@ begin
       Display();
     end;
   end;
+  if giWait > 0 then
+  begin
+
+    Dec(giWait);
+  end;
 end;
 
 
@@ -351,6 +366,8 @@ begin
   pbWorkTime.Max:=clMaxWorkTime;
   pbWorkTime.Position:=0;
   lbTime.Caption:='Время до перерыва';
+  fmRest.Hide;
+  gblRestFormShowed:=False;
 end;
 
 
@@ -580,8 +597,18 @@ begin
           MainForm.Interrupt();
         end;
       end;
-		end;
-	end;
+    end;
+    if gblRestFormShowed then
+    begin
+
+      if giWait = 0 then
+      begin
+
+        fmRest.Hide;
+        gblRestFormShowed:=False;
+      end;
+    end;
+  end;
 end;
 
 
@@ -607,8 +634,18 @@ begin
           MainForm.Interrupt();
         end;
       end;
-		end;
-	end;
+    end;
+    if gblRestFormShowed then
+    begin
+
+      if giWait = 0 then
+      begin
+
+        fmRest.Hide;
+        gblRestFormShowed:=False;
+      end;
+    end;
+  end;
 end;
 
 

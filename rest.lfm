@@ -1,0 +1,34 @@
+object fmRest: TfmRest
+  Left = 319
+  Height = 98
+  Top = 250
+  Width = 363
+  BorderStyle = bsNone
+  Caption = 'fmRest'
+  ClientHeight = 98
+  ClientWidth = 363
+  FormStyle = fsSystemStayOnTop
+  OnHide = FormHide
+  OnShow = FormShow
+  Position = poDesktopCenter
+  object lblMessage: TLabel
+    Left = 24
+    Height = 33
+    Top = 32
+    Width = 316
+    Caption = 'Отдохни. Просто отдохни.'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = '@Arial Unicode MS'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+  end
+  object Timer: TTimer
+    Interval = 5000
+    OnTimer = TimerTimer
+    Left = 119
+    Top = 4
+  end
+end
